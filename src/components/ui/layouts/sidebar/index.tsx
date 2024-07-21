@@ -1,7 +1,13 @@
+"use client"
+
+import { useRouter } from "next/navigation";
 import { AiOutlineBank, AiOutlineCalendar, AiOutlineFileSearch, AiOutlineHome, AiOutlineLogout, AiOutlineMessage, AiOutlineSetting, AiOutlineUsergroupAdd } from "react-icons/ai";
 import { Button } from "../../button";
 
 const Sidebar = () => {
+
+    const router = useRouter()
+
   return (
     <div className='pb-12 min-h-screen'>
         <div className='space-y-4 py-4'>
@@ -11,7 +17,7 @@ const Sidebar = () => {
                 </h2>
                 
                 <div className="space-y-3">
-                    <Button variant={"ghost"} className="w-full justify-start rounded-none hover:text-primary">
+                    <Button variant={"ghost"} className="w-full justify-start rounded-none hover:text-primary" onClick={() => router.push('/')} >
                     <AiOutlineHome className="mr-2 text-lg"/>
                         Home
                     </Button>
@@ -31,7 +37,7 @@ const Sidebar = () => {
                         All Aplicants
                     </Button>
 
-                    <Button variant={"ghost"} className="w-full justify-start rounded-none hover:text-primary">
+                    <Button variant={"ghost"} className="w-full justify-start rounded-none hover:text-primary" onClick={() => router.push('/job-listings')}>
                     <AiOutlineFileSearch className="mr-2 text-lg"/>
                         Job Listings
                     </Button>
