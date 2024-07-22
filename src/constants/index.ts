@@ -4,6 +4,16 @@ export const JOBTYPES: EnumValues  = ['Full-Time', 'Part-Time', 'Remote', 'Inter
 
 export const JOB_LISTING_COLOUMNS : string[] = ["Roles", "Status", "Date Posted", "Due Date", "Job Type", "Applicants", "Needs" ]
 
+export const JOB_APPLICANT_COLOUMNS : string[] = ["Name", "Applied Date"]
+
+export const JOB_APPLICANT_DATA = [
+    {
+        name : "Hariyanto",
+        appliedDate : "15 July 2024"
+    }
+
+]
+
 export const JOB_LISTING_DATA = [
     {
         roles:"Software",
