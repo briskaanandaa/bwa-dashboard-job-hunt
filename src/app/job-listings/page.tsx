@@ -1,5 +1,5 @@
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge";
+import ButtonActionTable from "@/components/ui/organisms/ButtonActionTable";
 import {
     Table,
     TableBody,
@@ -8,13 +8,12 @@ import {
     TableHead,
     TableHeader,
     TableRow
-} from "@/components/ui/table"
-import { JOB_LISTING_COLOUMNS, JOB_LISTING_DATA } from "@/constants"
-import { MoreVertical } from "lucide-react"
-  
+} from "@/components/ui/table";
+import { JOB_LISTING_COLOUMNS, JOB_LISTING_DATA } from "@/constants";
 
 
 const JobListingsPage = () => {
+
   return (
     <div>
         <div className="font-semibold text-3xl">
@@ -46,7 +45,7 @@ const JobListingsPage = () => {
                                 <TableCell><Badge variant='outline'>{item.jobType}</Badge></TableCell>
                                 <TableCell>{item.applicants}</TableCell>
                                 <TableCell>{item.applicants}/{item.needs}</TableCell>
-                                <TableCell><Button size="icon" variant='outline'> <MoreVertical className="w-4 h-4"/></Button></TableCell>
+                                <TableCell><ButtonActionTable url="/job-detail/1"/></TableCell>
                             </TableRow>
                  
                     )
