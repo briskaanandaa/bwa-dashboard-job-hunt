@@ -165,7 +165,7 @@ const PostJobPage = () => {
         </FieldInput>
 
         <FieldInput title="Required Skills" subtitle="Add requires Skills">
-            <InputSkills form={form} name={""} label={""}/>
+            <InputSkills form={form} name="required skills" label={"Add Skills"}/>
         </FieldInput>
 
         <FieldInput title="Job Descriptions" subtitle="Job Descriptions must be describe one position ">

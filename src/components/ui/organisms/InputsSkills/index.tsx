@@ -1,11 +1,11 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
-    FormControl,
-    FormField,
-    FormItem,
-    FormLabel,
-    FormMessage,
+	FormControl,
+	FormField,
+	FormItem,
+	FormLabel,
+	FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { PlusIcon } from "lucide-react";
@@ -57,7 +57,7 @@ const InputSkills: FC<InputSkillsProps> = ({ form, name, label }) => {
 			name={name}
 			render={({ field }) => (
 				<FormItem>
-					<FormLabel className="block">Add Skills</FormLabel>
+					<FormLabel className="block">{label}</FormLabel>
 					<FormControl>
 						<>
 							<Button
@@ -68,7 +68,6 @@ const InputSkills: FC<InputSkillsProps> = ({ form, name, label }) => {
 							>
 								<PlusIcon className="w-4 h-4 mr-2" />
 								{label}
-                                Add Skills
 							</Button>
 							{isHide && (
 								<div className="my-4 flex flex-row gap-4">

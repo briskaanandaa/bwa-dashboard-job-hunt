@@ -5,8 +5,10 @@ import { Button } from "@/components/ui/button"
 import { Calendar } from "@/components/ui/calendar"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
+import CKEditor from "@/components/ui/organisms/CKEditor"
 import CostumUpload from "@/components/ui/organisms/CostumUpload/index"
 import FieldInput from "@/components/ui/organisms/FieldInputs"
+import InputSkills from "@/components/ui/organisms/InputsSkills"
 import {
     Popover,
     PopoverContent,
@@ -21,6 +23,7 @@ import { cn } from "@/lib/utils"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { format } from "date-fns"
 import { CalendarIcon } from "lucide-react"
+import { useEffect, useState } from "react"
 
 
 import { useForm } from "react-hook-form"
@@ -30,6 +33,8 @@ import { z } from "zod"
 
 const OverviewForm = () => {
 
+    const [editorLoaded, setEditorLoaded] = useState<boolean>(false)
+
     const form = useForm<z.infer<typeof overviewFormSchema>>({
         resolver: zodResolver(overviewFormSchema),
     })
@@ -37,6 +42,9 @@ const OverviewForm = () => {
     const onSubmit = (val: z.infer<typeof overviewFormSchema>) =>{
         console.log(val)
     }
+
+    useEffect (()=> {setEditorLoaded(true)
+    }, [])
 
   return (
     <div>
@@ -170,7 +178,7 @@ const OverviewForm = () => {
 
                 
                 <FormField
-          control={form.control}
+                control={form.control}
           name="dateFounded"
           render={({ field }) => (
             <FormItem className="flex flex-col">
@@ -208,11 +216,23 @@ const OverviewForm = () => {
               </Popover>
               <FormMessage />
             </FormItem>
-          )}
-        />
+                )}
+                />
+
+                <InputSkills form ={form} name="techStack" label="Add TechStack"/>
 
                 </div>
                 </FieldInput>
+
+                <FieldInput title="About Company" subtitle="Brief description for your company. URLs are hyperlinked">
+             <CKEditor form={form} name="description" editorLoaded={editorLoaded}/>
+                
+                </FieldInput>
+
+            <div className="flex justify-end">
+                <Button size="lg">Save Changes</Button>
+            </div>
+
             </form>
         </Form>
     </div>
